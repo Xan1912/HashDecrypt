@@ -1,3 +1,5 @@
+import unittest
+
 def deHash(code):
 	
 	letters = "acdegilmnoprstuw"
@@ -17,14 +19,13 @@ def deHash(code):
 		except IndexError:
 			print "Hash has letters outside pre-defined list."
 	result_string = "".join(word)[::-1]
-	print result_string
+	return result_string
 
-def main():
-	string = "leepadg"
-	code = 930846109532517
-	deHash(code)
+class TestCases(unittest.TestCase):
+	def testCode(self):
+		self.assertEqual(deHash(930846109532517), "lawnmower")
+		self.assertEqual(deHash(680131659347), "leepadg")
 
+unittest.main()
 
-if __name__== "__main__":
-	main()
 
