@@ -1,5 +1,10 @@
 import unittest
 
+class TestCases(unittest.TestCase):
+	def testCode(self):
+		self.assertEqual(deHash(930846109532517), "lawnmower")
+		self.assertEqual(deHash(680131659347), "leepadg")
+
 def deHash(code):
 	
 	letters = "acdegilmnoprstuw"
@@ -21,11 +26,13 @@ def deHash(code):
 	result_string = "".join(word)[::-1]
 	return result_string
 
-class TestCases(unittest.TestCase):
-	def testCode(self):
-		self.assertEqual(deHash(930846109532517), "lawnmower")
-		self.assertEqual(deHash(680131659347), "leepadg")
 
-unittest.main()
+def main():
+	code = 930846109532517
+	string = deHash(code)
+	print string
+	unittest.main()
 
+if __name__=='__main__':
+	main()
 
